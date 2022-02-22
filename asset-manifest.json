@@ -1,14 +1,16 @@
 {
   "files": {
     "main.css": "/honeycomb-v2/static/css/main.e6c13ad2.css",
-    "main.js": "/honeycomb-v2/static/js/main.fa8e68be.js",
+    "main.js": "/honeycomb-v2/static/js/main.e45a3a2e.js",
+    "static/media/sun.svg": "/honeycomb-v2/static/media/sun.0b1fd7c4ac2ea2eab177c77c51d76e25.svg",
     "index.html": "/honeycomb-v2/index.html",
+    "static/media/moon.svg": "/honeycomb-v2/static/media/moon.0a74e7ab91e046431c8acfe7787384db.svg",
     "static/media/icon.svg": "/honeycomb-v2/static/media/icon.ef51376575567e1f43f6d1a03528b2c8.svg",
     "main.e6c13ad2.css.map": "/honeycomb-v2/static/css/main.e6c13ad2.css.map",
-    "main.fa8e68be.js.map": "/honeycomb-v2/static/js/main.fa8e68be.js.map"
+    "main.e45a3a2e.js.map": "/honeycomb-v2/static/js/main.e45a3a2e.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.fa8e68be.js"
+    "static/js/main.e45a3a2e.js"
   ]
 }
