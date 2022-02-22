@@ -8,10 +8,12 @@ import {
   Stack,
   Switch,
   Text,
+  useBreakpointValue,
   useColorMode,
   useRadioGroup,
 } from '@chakra-ui/react';
 
+import { Navigation } from '../../components/Navigation';
 import { Tab } from '../../components/Tab';
 import { theme } from '../../modules/theme';
 
@@ -21,9 +23,10 @@ import { ReactComponent as IconMoon } from './moon.svg';
 import { ReactComponent as IconSun } from './sun.svg';
 
 const BUTTON_VARIANTS = ['primary', 'secondary', 'outline', 'ghost'] as const;
+const OPTIONS = ['BNB', 'BUSD', 'ETH'];
 
-const options = ['BNB', 'BUSD', 'ETH'];
 const App = () => {
+  const margin = useBreakpointValue({ base: theme.sizes['10'], md: theme.sizes['20'] });
   const { colorMode, toggleColorMode } = useColorMode();
 
   const { getRootProps, getRadioProps } = useRadioGroup({
@@ -31,13 +34,12 @@ const App = () => {
     defaultValue: 'BNB',
     onChange: console.log,
   });
-
   const group = getRootProps();
 
   return (
     <Flex
       flexDirection="column"
-      margin={theme.sizes['20']}
+      margin={margin}
       sx={{
         '> *:not(:last-child)': {
           marginBottom: theme.sizes['10'],
@@ -71,6 +73,11 @@ const App = () => {
       </ComponentContainer>
 
       <ComponentContainer>
+        <Text fontSize="3xl">navigation</Text>
+        <Navigation />
+      </ComponentContainer>
+
+      <ComponentContainer>
         <Text fontSize="3xl">radio</Text>
         <RadioGroup defaultValue="1">
           <Stack spacing={theme.sizes['4']} direction="row">
@@ -89,7 +96,7 @@ const App = () => {
       <ComponentContainer>
         <Text fontSize="3xl">tab</Text>
         <HStack {...group}>
-          {options.map((it) => {
+          {OPTIONS.map((it) => {
             const radio = getRadioProps({ value: it });
             return (
               <Tab key={it} {...radio}>

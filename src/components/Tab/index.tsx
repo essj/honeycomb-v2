@@ -8,8 +8,8 @@ export const Tab = (props: Props) => {
   const { getInputProps, getCheckboxProps } = useRadio(props);
   const honeycomb = useHoneycombColorModeValue();
 
-  const input = getInputProps();
   const checkbox = getCheckboxProps();
+  const input = getInputProps();
 
   return (
     <Box as="label">
@@ -19,6 +19,7 @@ export const Tab = (props: Props) => {
         bg={honeycomb.color.bg.tooltip.normal}
         borderRadius={theme.sizes['9']}
         cursor="pointer"
+        fontSize="xs"
         _checked={{
           bg: honeycomb.color.text.normal,
           color: honeycomb.color.bg.normal,
