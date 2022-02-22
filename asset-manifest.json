@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/honeycomb-v2/static/css/main.e6c13ad2.css",
+    "main.js": "/honeycomb-v2/static/js/main.fa8e68be.js",
+    "index.html": "/honeycomb-v2/index.html",
+    "static/media/icon.svg": "/honeycomb-v2/static/media/icon.ef51376575567e1f43f6d1a03528b2c8.svg",
+    "main.e6c13ad2.css.map": "/honeycomb-v2/static/css/main.e6c13ad2.css.map",
+    "main.fa8e68be.js.map": "/honeycomb-v2/static/js/main.fa8e68be.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.fa8e68be.js"
+  ]
+}
