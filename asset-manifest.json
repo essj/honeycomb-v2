@@ -1,16 +1,20 @@
 {
   "files": {
     "main.css": "/honeycomb-v2/static/css/main.e6c13ad2.css",
-    "main.js": "/honeycomb-v2/static/js/main.c12174ef.js",
+    "main.js": "/honeycomb-v2/static/js/main.659afc38.js",
     "static/media/icon.svg": "/honeycomb-v2/static/media/icon.8002dd68de8650cc2084514fcbb520e1.svg",
+    "static/media/swap.svg": "/honeycomb-v2/static/media/swap.2a3441be010200864e6fa3a976ef0934.svg",
     "static/media/sun.svg": "/honeycomb-v2/static/media/sun.0b1fd7c4ac2ea2eab177c77c51d76e25.svg",
     "index.html": "/honeycomb-v2/index.html",
     "static/media/moon.svg": "/honeycomb-v2/static/media/moon.0a74e7ab91e046431c8acfe7787384db.svg",
+    "static/media/home.svg": "/honeycomb-v2/static/media/home.dfd6c3f9b9c34cdde14025784d9bbd2b.svg",
+    "static/media/nft.svg": "/honeycomb-v2/static/media/nft.475523525302895f2d7aceca7fab36b8.svg",
+    "static/media/history.svg": "/honeycomb-v2/static/media/history.302de560f643fcc0d1d115865169878f.svg",
     "main.e6c13ad2.css.map": "/honeycomb-v2/static/css/main.e6c13ad2.css.map",
-    "main.c12174ef.js.map": "/honeycomb-v2/static/js/main.c12174ef.js.map"
+    "main.659afc38.js.map": "/honeycomb-v2/static/js/main.659afc38.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.c12174ef.js"
+    "static/js/main.659afc38.js"
   ]
 }
