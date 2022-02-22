@@ -8,6 +8,7 @@ junit.xml
 /cypress/videos
 
 # production
+/build
 /dist
 /.version
 
