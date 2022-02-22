@@ -16,7 +16,7 @@ import { ReactComponent as Icon } from './icon.svg';
 import { ReactComponent as IconMoon } from './moon.svg';
 import { ReactComponent as IconSun } from './sun.svg';
 
-const BUTTON_VARIANTS = ['primary', 'secondary', 'outline'] as const;
+const BUTTON_VARIANTS = ['primary', 'secondary', 'outline', 'ghost'] as const;
 
 const App = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -38,12 +38,14 @@ const App = () => {
       <ComponentContainer>
         <Text fontSize="3xl">button</Text>
         {BUTTON_VARIANTS.map((variant) => (
-          <Button variant={variant}>{variant}</Button>
+          <Button key={variant} variant={variant}>
+            {variant}
+          </Button>
         ))}
         <Button leftIcon={<Icon />}>with icon</Button>
         <Text fontSize="md">disabled</Text>
         {BUTTON_VARIANTS.map((variant) => (
-          <Button variant={variant} disabled>
+          <Button key={`${variant}-disabled`} variant={variant} disabled>
             {variant}
           </Button>
         ))}
