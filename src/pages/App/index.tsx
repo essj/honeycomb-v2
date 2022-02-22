@@ -11,9 +11,12 @@ import {
 
 import { theme } from '../../modules/theme';
 
+import { ComponentContainer } from './ComponentContainer';
 import { ReactComponent as Icon } from './icon.svg';
+import { ReactComponent as IconMoon } from './moon.svg';
+import { ReactComponent as IconSun } from './sun.svg';
 
-export const VARIANTS = ['primary', 'secondary', 'outline'] as const;
+const BUTTON_VARIANTS = ['primary', 'secondary', 'outline'] as const;
 
 const App = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -21,36 +24,46 @@ const App = () => {
   return (
     <Flex
       flexDirection="column"
+      margin={theme.sizes['20']}
       sx={{
         '> *:not(:last-child)': {
-          marginBottom: theme.sizes['4'],
+          marginBottom: theme.sizes['10'],
         },
       }}
     >
-      <Button onClick={toggleColorMode}>Toggle {colorMode === 'light' ? 'Dark' : 'Light'}</Button>
-      <Text fontSize="3xl">button</Text>
-      {VARIANTS.map((variant) => (
-        <Button variant={variant}>{variant}</Button>
-      ))}
-      <Button leftIcon={<Icon />}>with icon</Button>
-      <Text fontSize="xl">disabled</Text>
-      {VARIANTS.map((variant) => (
-        <Button variant={variant} disabled>
-          {variant}
-        </Button>
-      ))}
+      <Button variant="secondary" onClick={toggleColorMode}>
+        {colorMode === 'light' ? <IconMoon /> : <IconSun />}
+      </Button>
 
-      <Text fontSize="3xl">checkbox</Text>
-      <Checkbox defaultChecked>checkbox</Checkbox>
-      <Checkbox>checkbox</Checkbox>
+      <ComponentContainer>
+        <Text fontSize="3xl">button</Text>
+        {BUTTON_VARIANTS.map((variant) => (
+          <Button variant={variant}>{variant}</Button>
+        ))}
+        <Button leftIcon={<Icon />}>with icon</Button>
+        <Text fontSize="md">disabled</Text>
+        {BUTTON_VARIANTS.map((variant) => (
+          <Button variant={variant} disabled>
+            {variant}
+          </Button>
+        ))}
+      </ComponentContainer>
 
-      <Text fontSize="3xl">radio</Text>
-      <RadioGroup defaultValue="1">
-        <Stack spacing={theme.sizes['4']} direction="row">
-          <Radio value="1">radio</Radio>
-          <Radio value="2">radio</Radio>
-        </Stack>
-      </RadioGroup>
+      <ComponentContainer>
+        <Text fontSize="3xl">checkbox</Text>
+        <Checkbox defaultChecked>checkbox</Checkbox>
+        <Checkbox>checkbox</Checkbox>
+      </ComponentContainer>
+
+      <ComponentContainer>
+        <Text fontSize="3xl">radio</Text>
+        <RadioGroup defaultValue="1">
+          <Stack spacing={theme.sizes['4']} direction="row">
+            <Radio value="1">radio</Radio>
+            <Radio value="2">radio</Radio>
+          </Stack>
+        </RadioGroup>
+      </ComponentContainer>
     </Flex>
   );
 };
