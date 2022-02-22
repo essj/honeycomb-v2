@@ -14,7 +14,7 @@ const control = (props: any) => {
   };
 
   return {
-    bg: 'transparent',
+    bg: 'none',
     border: '1px solid',
     borderColor: mode(
       GoldLight.honeycomb.color.text.placeholder,

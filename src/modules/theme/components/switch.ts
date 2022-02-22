@@ -4,29 +4,24 @@ import { GoldDark } from '../honeycomb/GoldDark';
 import { GoldLight } from '../honeycomb/GoldLight';
 import { sizes } from '../sizes';
 
-const control = (props: any) => {
+const container = {
+  display: 'flex',
+  alignItems: 'center',
+};
+
+const track = (props: any) => {
   const checkedBase = {
-    bg: 'none',
-    borderColor: mode(
+    bg: mode(
       GoldLight.honeycomb.color.primary.normal,
       GoldDark.honeycomb.color.primary.normal,
     )(props),
-    _before: {
-      bg: mode(
-        GoldLight.honeycomb.color.primary.normal,
-        GoldDark.honeycomb.color.primary.normal,
-      )(props),
-    },
   };
 
   return {
-    bg: 'none',
-    border: '1px solid',
-    borderColor: mode(
-      GoldLight.honeycomb.color.text.placeholder,
-      GoldDark.honeycomb.color.text.placeholder,
+    bg: mode(
+      GoldLight.honeycomb.color.bg.tooltip.outer,
+      GoldDark.honeycomb.color.bg.tooltip.outer,
     )(props),
-    borderRadius: 'full',
     _checked: {
       ...checkedBase,
       _hover: {
@@ -36,16 +31,16 @@ const control = (props: any) => {
   };
 };
 
-export const Radio = {
+export const Switch = {
   baseStyle: (props: any) => ({
-    control: control(props),
+    container,
+    track: track(props),
   }),
   defaultProps: {
     size: 'md',
   },
   sizes: {
     md: {
-      control: { w: sizes['4'], h: sizes['4'] },
       label: { fontSize: sizes['3.5'] },
     },
   },

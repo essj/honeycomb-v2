@@ -4,15 +4,19 @@ import { GoldDark } from '../honeycomb/GoldDark';
 import { GoldLight } from '../honeycomb/GoldLight';
 import { sizes } from '../sizes';
 
-const primary = () => {
+const primary = (props: any) => {
   const base = {
-    bg: GoldLight.honeycomb.color.primary.normal,
+    bg: mode(
+      GoldLight.honeycomb.color.primary.normal,
+      GoldDark.honeycomb.color.primary.normal,
+    )(props),
     color: GoldLight.honeycomb.color.text.normal,
   };
 
   return {
     ...base,
     _hover: {
+      bg: GoldLight.honeycomb.color.primary.active,
       _disabled: {
         ...base,
       },
@@ -32,7 +36,10 @@ const secondary = (props: any) => {
   return {
     ...base,
     _hover: {
-      bg: GoldLight.honeycomb.color.primary.normal,
+      bg: mode(
+        GoldLight.honeycomb.color.primary.normal,
+        GoldDark.honeycomb.color.primary.normal,
+      )(props),
       color: GoldLight.honeycomb.color.text.normal,
       _disabled: {
         ...base,
@@ -43,7 +50,7 @@ const secondary = (props: any) => {
 
 const outline = (props: any) => {
   const base = {
-    bg: 'transparent',
+    bg: 'none',
     border: '1px solid',
     borderColor: mode(
       GoldLight.honeycomb.color.text.disabled,
@@ -54,6 +61,48 @@ const outline = (props: any) => {
 
   return {
     ...base,
+    _active: {
+      ...base,
+    },
+    _hover: {
+      bg: 'none',
+      borderColor: mode(
+        GoldLight.honeycomb.color.primary.normal,
+        GoldDark.honeycomb.color.primary.normal,
+      )(props),
+      _disabled: {
+        ...base,
+      },
+    },
+  };
+};
+
+const ghost = (props: any) => {
+  const base = {
+    bg: 'none',
+    color: mode(GoldLight.honeycomb.color.text.normal, GoldDark.honeycomb.color.text.normal)(props),
+    opacity: '0.3',
+  };
+
+  return {
+    ...base,
+    _active: {
+      ...base,
+    },
+    _focus: {
+      boxShadow: 'none',
+    },
+    _hover: {
+      bg: 'none',
+      color: mode(
+        GoldLight.honeycomb.color.text.normal,
+        GoldDark.honeycomb.color.text.normal,
+      )(props),
+      opacity: '1.0',
+      _disabled: {
+        ...base,
+      },
+    },
   };
 };
 
@@ -81,5 +130,6 @@ export const Button = {
     primary,
     secondary,
     outline,
+    ghost,
   },
 };

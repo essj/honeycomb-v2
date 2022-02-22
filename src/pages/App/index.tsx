@@ -2,13 +2,17 @@ import {
   Button,
   Checkbox,
   Flex,
+  HStack,
   Radio,
   RadioGroup,
   Stack,
+  Switch,
   Text,
   useColorMode,
+  useRadioGroup,
 } from '@chakra-ui/react';
 
+import { Tab } from '../../components/Tab';
 import { theme } from '../../modules/theme';
 
 import { ComponentContainer } from './ComponentContainer';
@@ -18,8 +22,17 @@ import { ReactComponent as IconSun } from './sun.svg';
 
 const BUTTON_VARIANTS = ['primary', 'secondary', 'outline', 'ghost'] as const;
 
+const options = ['BNB', 'BUSD', 'ETH'];
 const App = () => {
   const { colorMode, toggleColorMode } = useColorMode();
+
+  const { getRootProps, getRadioProps } = useRadioGroup({
+    name: 'tokens',
+    defaultValue: 'BNB',
+    onChange: console.log,
+  });
+
+  const group = getRootProps();
 
   return (
     <Flex
@@ -65,6 +78,26 @@ const App = () => {
             <Radio value="2">radio</Radio>
           </Stack>
         </RadioGroup>
+      </ComponentContainer>
+
+      <ComponentContainer>
+        <Text fontSize="3xl">switch</Text>
+        <Switch defaultChecked>switch</Switch>
+        <Switch>switch</Switch>
+      </ComponentContainer>
+
+      <ComponentContainer>
+        <Text fontSize="3xl">tab</Text>
+        <HStack {...group}>
+          {options.map((it) => {
+            const radio = getRadioProps({ value: it });
+            return (
+              <Tab key={it} {...radio}>
+                {it}
+              </Tab>
+            );
+          })}
+        </HStack>
       </ComponentContainer>
     </Flex>
   );
