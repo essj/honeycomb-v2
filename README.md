@@ -46,6 +46,7 @@ In the new sizing system, sizes are in `rem` and in increments of 4px (e.g.
 
 // new
 // px used for components, rem used for font sizes
-<Icon width={theme.sizes['4']} /> // 16rem
+<Icon width={theme.sizes['4']} /> // 1rem
 <Text fontSize="md" /> // 1rem
+<Text fontSize={theme.sizes['4']} /> // 1rem
 ```
