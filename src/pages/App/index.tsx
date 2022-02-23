@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react';
 
 import { Navigation } from '../../components/Navigation';
+import { SelectNetwork } from '../../components/SelectNetwork';
 import { Tab } from '../../components/Tab';
 import { theme } from '../../modules/theme';
 
@@ -75,6 +76,17 @@ const App = () => {
       <ComponentContainer>
         <Text fontSize="3xl">navigation</Text>
         <Navigation />
+      </ComponentContainer>
+
+      <ComponentContainer
+        sx={{
+          '> p:first-of-type': {
+            marginBottom: theme.sizes['4'],
+          },
+        }}
+      >
+        <Text fontSize="3xl">select network</Text>
+        <SelectNetwork />
       </ComponentContainer>
 
       <ComponentContainer>
