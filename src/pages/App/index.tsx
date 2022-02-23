@@ -13,6 +13,7 @@ import {
   useRadioGroup,
 } from '@chakra-ui/react';
 
+import { CopyToClipboard } from '../../components/CopyToClipboard';
 import { Navigation } from '../../components/Navigation';
 import { SelectNetwork } from '../../components/SelectNetwork';
 import { Tab } from '../../components/Tab';
@@ -71,6 +72,19 @@ const App = () => {
         <Text fontSize="3xl">checkbox</Text>
         <Checkbox defaultChecked>checkbox</Checkbox>
         <Checkbox>checkbox</Checkbox>
+      </ComponentContainer>
+
+      <ComponentContainer
+        sx={{
+          '> p:first-of-type': {
+            marginBottom: theme.sizes['4'],
+          },
+        }}
+      >
+        <Text fontSize="3xl">copy to clipboard</Text>
+        <CopyToClipboard content={<Text fontSize="xs">Copy Address</Text>} value="0x0">
+          <Text>copy to clipboard</Text>
+        </CopyToClipboard>
       </ComponentContainer>
 
       <ComponentContainer>
