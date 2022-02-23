@@ -13,11 +13,12 @@ import {
   useRadioGroup,
 } from '@chakra-ui/react';
 
+import { AccountAddressCopyToClipboard } from '../../components/AccountAddressCopyToClipboard';
 import { CopyToClipboard } from '../../components/CopyToClipboard';
 import { Navigation } from '../../components/Navigation';
 import { SelectNetwork } from '../../components/SelectNetwork';
 import { Tab } from '../../components/Tab';
-import { theme } from '../../modules/theme';
+import { theme, useHoneycombColorModeValue } from '../../modules/theme';
 
 import { ComponentContainer } from './ComponentContainer';
 import { ReactComponent as Icon } from './icon.svg';
@@ -28,6 +29,7 @@ const BUTTON_VARIANTS = ['primary', 'secondary', 'outline', 'ghost'] as const;
 const OPTIONS = ['BNB', 'BUSD', 'ETH'];
 
 const App = () => {
+  const honeycomb = useHoneycombColorModeValue();
   const margin = useBreakpointValue({ base: theme.sizes['10'], md: theme.sizes['20'] });
   const { colorMode, toggleColorMode } = useColorMode();
 
@@ -74,17 +76,33 @@ const App = () => {
         <Checkbox>checkbox</Checkbox>
       </ComponentContainer>
 
-      <ComponentContainer
-        sx={{
-          '> p:first-of-type': {
-            marginBottom: theme.sizes['4'],
-          },
-        }}
-      >
+      <ComponentContainer h="425px">
         <Text fontSize="3xl">copy to clipboard</Text>
         <CopyToClipboard content={<Text fontSize="xs">Copy Address</Text>} value="0x0">
-          <Text>copy to clipboard</Text>
+          <Button>copy to clipboard</Button>
         </CopyToClipboard>
+        <Text fontSize="md">account address copy to clipboard</Text>
+        <Text fontSize="sm">home:</Text>
+        <AccountAddressCopyToClipboard
+          account="Account 1"
+          address="0x00000000000"
+          boxProps={{
+            px: theme.sizes['3'],
+            py: theme.sizes['1'],
+            _hover: { bg: honeycomb.color.warning.normal },
+          }}
+        />
+        <Text fontSize="sm">receive:</Text>
+        <AccountAddressCopyToClipboard
+          account="Account 1"
+          address="0x00000000000"
+          boxProps={{
+            bg: honeycomb.color.bg.tooltip.accent,
+            px: theme.sizes['4'],
+            py: theme.sizes['2'],
+            _hover: { bg: honeycomb.color.bg.tooltip.outer },
+          }}
+        />
       </ComponentContainer>
 
       <ComponentContainer>
