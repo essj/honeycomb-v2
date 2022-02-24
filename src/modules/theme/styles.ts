@@ -30,6 +30,7 @@ export const styles = {
       bg: mode(GoldLight.honeycomb.color.bg.masked, GoldDark.honeycomb.color.bg.masked)(props),
     },
     '.tippy-box': {
+      fontSize: 'xs',
       "&[data-theme='dark']": tippyDark,
       "&[data-theme='light']": tippyLight,
     },

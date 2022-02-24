@@ -18,14 +18,15 @@ export const CopyToClipboard = ({
   const [visible, setVisible] = useState(false);
   const { hasCopied, onCopy } = useClipboard(value);
 
+  // TODO: Call existing events (like onClick), if any, before we overwrite.
   const children = useMemo(() => {
     if (otherProps.children.type === React.Fragment) {
       throw new Error('Do not pass a fragment as children to `CopyToClipboard`.');
     }
     return React.cloneElement(otherProps.children, {
       onClick: onCopy,
-      onMouseOver: () => setVisible(true),
-      onMouseOut: () => setVisible(false),
+      onMouseEnter: () => setVisible(true),
+      onMouseLeave: () => setVisible(false),
     });
   }, [onCopy, otherProps.children]);
 

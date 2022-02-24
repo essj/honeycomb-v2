@@ -15,10 +15,11 @@ import {
 
 import { AccountAddressCopyToClipboard } from '../../components/AccountAddressCopyToClipboard';
 import { CopyToClipboard } from '../../components/CopyToClipboard';
+import { Dashboard } from '../../components/Dashboard';
 import { Navigation } from '../../components/Navigation';
 import { SelectNetwork } from '../../components/SelectNetwork';
 import { Tab } from '../../components/Tab';
-import { theme, useHoneycombColorModeValue } from '../../modules/theme';
+import { theme } from '../../modules/theme';
 
 import { ComponentContainer } from './ComponentContainer';
 import { ReactComponent as Icon } from './icon.svg';
@@ -29,7 +30,6 @@ const BUTTON_VARIANTS = ['primary', 'secondary', 'outline', 'ghost'] as const;
 const OPTIONS = ['BNB', 'BUSD', 'ETH'];
 
 const App = () => {
-  const honeycomb = useHoneycombColorModeValue();
   const margin = useBreakpointValue({ base: theme.sizes['10'], md: theme.sizes['20'] });
   const { colorMode, toggleColorMode } = useColorMode();
 
@@ -94,6 +94,11 @@ const App = () => {
           address="0x00000000000"
           variant="secondary"
         />
+      </ComponentContainer>
+
+      <ComponentContainer>
+        <Text fontSize="3xl">dashboard</Text>
+        <Dashboard />
       </ComponentContainer>
 
       <ComponentContainer>
