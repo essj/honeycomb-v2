@@ -27,7 +27,7 @@ export const styles = {
         GoldLight.honeycomb.color.text.normal,
         GoldDark.honeycomb.color.text.normal,
       )(props),
-      bg: mode(GoldLight.honeycomb.color.bg.normal, GoldDark.honeycomb.color.border)(props),
+      bg: mode(GoldLight.honeycomb.color.bg.masked, GoldDark.honeycomb.color.bg.masked)(props),
     },
     '.tippy-box': {
       "&[data-theme='dark']": tippyDark,

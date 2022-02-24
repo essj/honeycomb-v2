@@ -86,22 +86,13 @@ const App = () => {
         <AccountAddressCopyToClipboard
           account="Account 1"
           address="0x00000000000"
-          boxProps={{
-            px: theme.sizes['3'],
-            py: theme.sizes['1'],
-            _hover: { bg: honeycomb.color.warning.normal },
-          }}
+          variant="primary"
         />
         <Text fontSize="sm">receive:</Text>
         <AccountAddressCopyToClipboard
           account="Account 1"
           address="0x00000000000"
-          boxProps={{
-            bg: honeycomb.color.bg.tooltip.accent,
-            px: theme.sizes['4'],
-            py: theme.sizes['2'],
-            _hover: { bg: honeycomb.color.bg.tooltip.outer },
-          }}
+          variant="secondary"
         />
       </ComponentContainer>
 
