@@ -34,7 +34,7 @@ export const AccountAddressCopyToClipboard = ({ account, address, variant }: Pro
 
   return (
     <CopyToClipboard
-      content={<CopyToClipboard.Content>Copy Address</CopyToClipboard.Content>}
+      content={<CopyToClipboard.Content>Copy address</CopyToClipboard.Content>}
       value={address}
     >
       <Box

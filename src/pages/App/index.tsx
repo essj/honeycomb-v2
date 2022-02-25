@@ -79,7 +79,7 @@ const App = () => {
       <ComponentContainer h="425px">
         <Text fontSize="3xl">copy to clipboard</Text>
         <CopyToClipboard
-          content={<CopyToClipboard.Content>Copy Address</CopyToClipboard.Content>}
+          content={<CopyToClipboard.Content>Copy address</CopyToClipboard.Content>}
           value="0x0"
         >
           <Button>copy to clipboard</Button>

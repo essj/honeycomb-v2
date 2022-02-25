@@ -24,7 +24,7 @@ export const Dashboard = () => {
       <Flex
         alignItems="center"
         justifyContent="space-between"
-        mb={`-${theme.sizes['1']}`}
+        mb={`-${theme.sizes['2']}`}
         width="100%"
       >
         <TutorialTooltip
@@ -45,7 +45,7 @@ export const Dashboard = () => {
         address="0x00000000000"
         variant="primary"
       />
-      <Text fontSize={theme.sizes['10']} fontWeight="bold" mt={`-${theme.sizes['1']}`}>
+      <Text fontSize={theme.sizes['10']} fontWeight="bold" mt={`-${theme.sizes['2']}`}>
         {formatFiatAsset({ locale: 'en-US', amount: 1000, currency: 'USD' })}
       </Text>
     </Flex>
