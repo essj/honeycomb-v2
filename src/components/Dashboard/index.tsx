@@ -27,7 +27,9 @@ export const Dashboard = () => {
         mb={`-${theme.sizes['1']}`}
         width="100%"
       >
-        <TutorialTooltip contentTooltip="Not connected">
+        <TutorialTooltip
+          contentTooltip={<TutorialTooltip.Content>Not connected</TutorialTooltip.Content>}
+        >
           <Box
             bg={GoldLight.honeycomb.color.text.normal}
             borderRadius="50%"

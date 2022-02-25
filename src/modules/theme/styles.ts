@@ -31,6 +31,9 @@ export const styles = {
     },
     '.tippy-box': {
       fontSize: 'xs',
+      '.tippy-content': {
+        p: 0,
+      },
       "&[data-theme='dark']": tippyDark,
       "&[data-theme='light']": tippyLight,
     },

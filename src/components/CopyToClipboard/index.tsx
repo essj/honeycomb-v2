@@ -3,6 +3,7 @@ import Tippy from '@tippyjs/react';
 import React, { useMemo, useState } from 'react';
 
 import { useHoneycombColorModeValue } from '../../modules/theme';
+import { Content } from '../TutorialTooltip/Content';
 
 export const CopyToClipboard = ({
   value,
@@ -36,12 +37,7 @@ export const CopyToClipboard = ({
   }, [colorMode, hasCopied]);
 
   const tippyContent = useMemo(() => {
-    if (hasCopied)
-      return (
-        <Text color={honeycomb.color.success.normal} fontSize="xs">
-          Copied!
-        </Text>
-      );
+    if (hasCopied) return <Content color={honeycomb.color.success.normal}>Copied!</Content>;
     return otherProps.content;
   }, [hasCopied, honeycomb.color.success, otherProps.content]);
 
@@ -59,3 +55,5 @@ export const CopyToClipboard = ({
     </Tippy>
   );
 };
+
+CopyToClipboard.Content = Content;

@@ -33,7 +33,10 @@ export const AccountAddressCopyToClipboard = ({ account, address, variant }: Pro
   }, [honeycomb, variant]);
 
   return (
-    <CopyToClipboard content={<Text fontSize="xs">Copy Address</Text>} value={address}>
+    <CopyToClipboard
+      content={<CopyToClipboard.Content>Copy Address</CopyToClipboard.Content>}
+      value={address}
+    >
       <Box
         alignItems="center"
         borderRadius={theme.sizes['10']}
