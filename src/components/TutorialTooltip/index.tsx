@@ -71,7 +71,7 @@ export const TutorialTooltip = ({
           if (value === VisibleType.Dropdown) return VisibleType.Dropdown;
           return VisibleType.Tooltip;
         });
-      }, 1000),
+      }, 500),
     );
   }, []);
 
@@ -96,6 +96,7 @@ export const TutorialTooltip = ({
 
   return (
     <Tippy
+      animation={false}
       arrow
       content={tippyContent}
       interactive

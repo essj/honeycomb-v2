@@ -43,6 +43,7 @@ export const CopyToClipboard = ({
 
   return (
     <Tippy
+      animation={false}
       arrow
       content={tippyContent}
       interactive
