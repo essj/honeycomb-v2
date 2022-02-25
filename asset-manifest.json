@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/honeycomb-v2/static/css/main.3c782700.css",
-    "main.js": "/honeycomb-v2/static/js/main.977589f0.js",
+    "main.js": "/honeycomb-v2/static/js/main.8702fac6.js",
     "static/media/icon.svg": "/honeycomb-v2/static/media/icon.8002dd68de8650cc2084514fcbb520e1.svg",
     "static/media/Copy.svg": "/honeycomb-v2/static/media/Copy.644a24e375bc8d6ea9bd15d0d5cc94d5.svg",
     "static/media/swap.svg": "/honeycomb-v2/static/media/swap.2a3441be010200864e6fa3a976ef0934.svg",
@@ -18,10 +18,10 @@
     "static/media/Ellipsis.svg": "/honeycomb-v2/static/media/Ellipsis.57f66f9a5fd1360d0d0276d3e859c745.svg",
     "static/media/arrow.svg": "/honeycomb-v2/static/media/arrow.10ea4792d0bb65ef802aab19a9c097cc.svg",
     "main.3c782700.css.map": "/honeycomb-v2/static/css/main.3c782700.css.map",
-    "main.977589f0.js.map": "/honeycomb-v2/static/js/main.977589f0.js.map"
+    "main.8702fac6.js.map": "/honeycomb-v2/static/js/main.8702fac6.js.map"
   },
   "entrypoints": [
     "static/css/main.3c782700.css",
-    "static/js/main.977589f0.js"
+    "static/js/main.8702fac6.js"
   ]
 }
