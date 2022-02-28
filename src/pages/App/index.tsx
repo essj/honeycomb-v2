@@ -3,6 +3,7 @@ import {
   Checkbox,
   Flex,
   HStack,
+  Input,
   Radio,
   RadioGroup,
   Stack,
@@ -102,6 +103,13 @@ const App = () => {
       <ComponentContainer>
         <Text fontSize="3xl">dashboard</Text>
         <Dashboard />
+      </ComponentContainer>
+
+      <ComponentContainer>
+        <Text fontSize="3xl">input</Text>
+        <Input />
+        <Input isDisabled placeholder="disabled" />
+        <Input isInvalid placeholder="invalid" />
       </ComponentContainer>
 
       <ComponentContainer>
