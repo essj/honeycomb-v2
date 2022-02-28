@@ -1,9 +1,8 @@
-import React from 'react';
-import { Flex } from '@chakra-ui/react';
+import { Flex, FlexProps } from '@chakra-ui/react';
 
 import { theme, useHoneycombColorModeValue } from '../../../modules/theme';
 
-export const ComponentContainer = (props: React.ComponentPropsWithoutRef<typeof Flex>) => {
+export const ComponentContainer = (props: FlexProps) => {
   const honeycomb = useHoneycombColorModeValue();
 
   return (

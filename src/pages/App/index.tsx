@@ -17,6 +17,7 @@ import {
 import { AccountAddressCopyToClipboard } from '../../components/AccountAddressCopyToClipboard';
 import { CopyToClipboard } from '../../components/CopyToClipboard';
 import { Dashboard } from '../../components/Dashboard';
+import { InputGasLimit } from '../../components/Gas';
 import { Navigation } from '../../components/Navigation';
 import { SelectNetwork } from '../../components/SelectNetwork';
 import { Tab } from '../../components/Tab';
@@ -110,6 +111,8 @@ const App = () => {
         <Input />
         <Input isDisabled placeholder="disabled" />
         <Input isInvalid placeholder="invalid" />
+        <Text fontSize="sm">gas limit</Text>
+        <InputGasLimit />
       </ComponentContainer>
 
       <ComponentContainer>
