@@ -15,7 +15,7 @@ export type Props = {
   variant: Variant;
 };
 
-export const AccountAddressCopyToClipboard = ({ account, address, variant }: Props) => {
+export const CopyToClipboardAccountAddress = ({ account, address, variant }: Props) => {
   const honeycomb = useHoneycombColorModeValue();
 
   const variantProps = useMemo(() => {

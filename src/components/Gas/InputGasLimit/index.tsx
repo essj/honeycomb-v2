@@ -26,6 +26,7 @@ export const InputGasLimit = ({ ...otherProps }: Props) => {
         pr="68px"
         size="lg"
         textAlign="center"
+        type="number"
         _selection={{
           bg: honeycomb.color.primary.normal,
           color: GoldLight.honeycomb.color.text.normal,

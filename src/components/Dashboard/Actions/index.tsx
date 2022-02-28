@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react';
 
 import { theme, useHoneycombColorModeValue } from '../../../modules/theme';
 import { Icon } from '../../Icon';
-import { TutorialTooltip, VisibleType } from '../../TutorialTooltip';
+import { TooltipTutorial, VisibleType } from '../../TooltipTutorial';
 
 import { Item } from './Item';
 
@@ -39,8 +39,8 @@ export const Actions = () => {
           : undefined
       }
     >
-      <TutorialTooltip
-        contentTooltip={<TutorialTooltip.Content>Account options</TutorialTooltip.Content>}
+      <TooltipTutorial
+        contentTooltip={<TooltipTutorial.Content>Account options</TooltipTutorial.Content>}
         contentDropdown={
           <Flex flexDirection="column" py={theme.sizes['2']}>
             <Item icon={<Icon.ExternalLink />} title="View account in explorer" />
@@ -64,7 +64,7 @@ export const Actions = () => {
         >
           <Icon.Ellipsis />
         </Flex>
-      </TutorialTooltip>
+      </TooltipTutorial>
     </Box>
   );
 };

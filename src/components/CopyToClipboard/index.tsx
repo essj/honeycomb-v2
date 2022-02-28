@@ -1,9 +1,9 @@
-import { Text, useClipboard, useColorMode } from '@chakra-ui/react';
+import { useClipboard, useColorMode } from '@chakra-ui/react';
 import Tippy from '@tippyjs/react';
 import React, { useMemo, useState } from 'react';
 
 import { useHoneycombColorModeValue } from '../../modules/theme';
-import { Content } from '../TutorialTooltip/Content';
+import { Content } from '../TooltipTutorial/Content';
 
 export const CopyToClipboard = ({
   value,

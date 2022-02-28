@@ -14,7 +14,7 @@ import {
   useRadioGroup,
 } from '@chakra-ui/react';
 
-import { AccountAddressCopyToClipboard } from '../../components/AccountAddressCopyToClipboard';
+import { CopyToClipboardAccountAddress } from '../../components/CopyToClipboardAccountAddress';
 import { CopyToClipboard } from '../../components/CopyToClipboard';
 import { Dashboard } from '../../components/Dashboard';
 import { InputGasLimit } from '../../components/Gas';
@@ -86,15 +86,15 @@ const App = () => {
         >
           <Button>copy to clipboard</Button>
         </CopyToClipboard>
-        <Text fontSize="md">account address copy to clipboard</Text>
+        <Text fontSize="md">copy to clipboard account address</Text>
         <Text fontSize="sm">home:</Text>
-        <AccountAddressCopyToClipboard
+        <CopyToClipboardAccountAddress
           account="Account 1"
           address="0x00000000000"
           variant="primary"
         />
         <Text fontSize="sm">receive:</Text>
-        <AccountAddressCopyToClipboard
+        <CopyToClipboardAccountAddress
           account="Account 1"
           address="0x00000000000"
           variant="secondary"

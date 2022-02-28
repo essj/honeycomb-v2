@@ -16,7 +16,7 @@ export type Props = TippyProps & {
   onVisibleChange?: (value: VisibleType | null) => void;
 };
 
-export const TutorialTooltip = ({
+export const TooltipTutorial = ({
   contentDropdown,
   contentTooltip,
   onVisibleChange,
@@ -111,4 +111,4 @@ export const TutorialTooltip = ({
   );
 };
 
-TutorialTooltip.Content = Content;
+TooltipTutorial.Content = Content;

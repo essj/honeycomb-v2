@@ -2,8 +2,8 @@ import { Box, Flex, Text } from '@chakra-ui/react';
 
 import { formatFiatAsset } from '../../modules/intl';
 import { GoldLight, theme, useHoneycombColorModeValue } from '../../modules/theme';
-import { AccountAddressCopyToClipboard } from '../AccountAddressCopyToClipboard';
-import { TutorialTooltip } from '../TutorialTooltip';
+import { CopyToClipboardAccountAddress } from '../CopyToClipboardAccountAddress';
+import { TooltipTutorial } from '../TooltipTutorial';
 
 import { Actions } from './Actions';
 
@@ -27,8 +27,8 @@ export const Dashboard = () => {
         mb={`-${theme.sizes['2']}`}
         width="100%"
       >
-        <TutorialTooltip
-          contentTooltip={<TutorialTooltip.Content>Not connected</TutorialTooltip.Content>}
+        <TooltipTutorial
+          contentTooltip={<TooltipTutorial.Content>Not connected</TooltipTutorial.Content>}
         >
           <Box
             bg={GoldLight.honeycomb.color.text.normal}
@@ -37,10 +37,10 @@ export const Dashboard = () => {
             opacity={0.4}
             w="10px"
           />
-        </TutorialTooltip>
+        </TooltipTutorial>
         <Actions />
       </Flex>
-      <AccountAddressCopyToClipboard
+      <CopyToClipboardAccountAddress
         account="Account 1"
         address="0x00000000000"
         variant="primary"
