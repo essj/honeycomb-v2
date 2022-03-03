@@ -1,7 +1,7 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Text, useColorMode } from '@chakra-ui/react';
 import { useMemo } from 'react';
 
-import { GoldLight, theme, useHoneycombColorModeValue } from '../../modules/theme';
+import { theme } from '../../modules/theme';
 import { formatTruncatedString } from '../../modules/utils';
 import { CopyToClipboard } from '../CopyToClipboard';
 import { Icon } from '../Icon';
@@ -16,21 +16,21 @@ export type Props = {
 };
 
 export const CopyToClipboardAccountAddress = ({ account, address, variant }: Props) => {
-  const honeycomb = useHoneycombColorModeValue();
+  const { colorMode } = useColorMode();
 
   const variantProps = useMemo(() => {
     if (variant === 'primary') {
       return {
         _hover: {
-          bg: honeycomb.color.warning.normal,
-          color: GoldLight.honeycomb.color.text.normal,
+          bg: theme.colors[colorMode].scene.warning.normal,
+          color: theme.colors[colorMode].general.dark,
         },
       };
     }
     return {
-      bg: honeycomb.color.bg.tooltip.accent,
+      bg: theme.colors[colorMode].bg.accent,
     };
-  }, [honeycomb, variant]);
+  }, [colorMode, variant]);
 
   return (
     <CopyToClipboard
@@ -47,10 +47,10 @@ export const CopyToClipboardAccountAddress = ({ account, address, variant }: Pro
         w="fit-content"
         {...variantProps}
       >
-        <Text fontSize="sm" mr={theme.sizes['2']}>
+        <Text fontSize={theme.typography.fontSizes['3.5']} mr={theme.sizes['2']}>
           {account}
         </Text>
-        <Text fontSize="sm" fontWeight="semibold" mr={theme.sizes['2']}>
+        <Text fontSize={theme.typography.fontSizes['3.5']} fontWeight="600" mr={theme.sizes['2']}>
           {formatTruncatedString({ value: address, maxCharsPerSide: 4 })}
         </Text>
         <Icon.Copy />

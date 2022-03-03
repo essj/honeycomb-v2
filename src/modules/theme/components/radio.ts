@@ -1,31 +1,22 @@
 import { mode } from '@chakra-ui/theme-tools';
 
-import { GoldDark } from '../honeycomb/GoldDark';
-import { GoldLight } from '../honeycomb/GoldLight';
+import { colors } from '../colors';
 import { sizes } from '../sizes';
+import { typography } from '../typography';
 
 const control = (props: any) => {
   const checkedBase = {
     bg: 'none',
-    borderColor: mode(
-      GoldLight.honeycomb.color.primary.normal,
-      GoldDark.honeycomb.color.primary.normal,
-    )(props),
+    borderColor: mode(colors.light.scene.primary.normal, colors.dark.scene.primary.normal)(props),
     _before: {
-      bg: mode(
-        GoldLight.honeycomb.color.primary.normal,
-        GoldDark.honeycomb.color.primary.normal,
-      )(props),
+      bg: mode(colors.light.scene.primary.normal, colors.dark.scene.primary.normal)(props),
     },
   };
 
   return {
     bg: 'none',
     border: '1px solid',
-    borderColor: mode(
-      GoldLight.honeycomb.color.text.placeholder,
-      GoldDark.honeycomb.color.text.placeholder,
-    )(props),
+    borderColor: mode(colors.light.general.masked, colors.dark.general.masked)(props),
     borderRadius: 'full',
     _checked: {
       ...checkedBase,
@@ -46,7 +37,7 @@ export const Radio = {
   sizes: {
     md: {
       control: { w: sizes['4'], h: sizes['4'] },
-      label: { fontSize: sizes['3.5'] },
+      label: { fontSize: typography.fontSizes['3.5'] },
     },
   },
 };

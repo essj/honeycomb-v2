@@ -2,7 +2,7 @@ import { useClipboard, useColorMode } from '@chakra-ui/react';
 import Tippy from '@tippyjs/react';
 import React, { useMemo, useState } from 'react';
 
-import { useHoneycombColorModeValue } from '../../modules/theme';
+import { theme } from '../../modules/theme';
 import { Content } from '../TooltipTutorial/Content';
 
 export const CopyToClipboard = ({
@@ -14,7 +14,6 @@ export const CopyToClipboard = ({
   value: string;
 }) => {
   const { colorMode } = useColorMode();
-  const honeycomb = useHoneycombColorModeValue();
 
   const [visible, setVisible] = useState(false);
   const { hasCopied, onCopy } = useClipboard(value);
@@ -37,9 +36,10 @@ export const CopyToClipboard = ({
   }, [colorMode, hasCopied]);
 
   const tippyContent = useMemo(() => {
-    if (hasCopied) return <Content color={honeycomb.color.success.normal}>Copied!</Content>;
+    if (hasCopied)
+      return <Content color={theme.colors[colorMode].scene.success.normal}>Copied!</Content>;
     return otherProps.content;
-  }, [hasCopied, honeycomb.color.success, otherProps.content]);
+  }, [colorMode, hasCopied, otherProps.content]);
 
   return (
     <Tippy

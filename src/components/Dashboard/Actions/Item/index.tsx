@@ -1,6 +1,6 @@
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex, Text, useColorMode } from '@chakra-ui/react';
 
-import { theme, useHoneycombColorModeValue } from '../../../../modules/theme';
+import { theme } from '../../../../modules/theme';
 
 export type Props = {
   icon: React.ReactNode;
@@ -8,7 +8,7 @@ export type Props = {
 };
 
 export const Item = ({ icon, title }: Props) => {
-  const honeycomb = useHoneycombColorModeValue();
+  const { colorMode } = useColorMode();
 
   return (
     <Flex
@@ -17,7 +17,7 @@ export const Item = ({ icon, title }: Props) => {
       px={theme.sizes['5']}
       py={theme.sizes['3']}
       _hover={{
-        bg: honeycomb.color.bg.tooltip.accent,
+        bg: theme.colors[colorMode].bg.accent,
       }}
     >
       {icon}

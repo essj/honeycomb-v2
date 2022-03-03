@@ -1,15 +1,15 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, useColorMode } from '@chakra-ui/react';
 import { TippyProps } from '@tippyjs/react';
 import { useMemo, useState } from 'react';
 
-import { theme, useHoneycombColorModeValue } from '../../../modules/theme';
+import { theme } from '../../../modules/theme';
 import { Icon } from '../../Icon';
 import { TooltipTutorial, VisibleType } from '../../TooltipTutorial';
 
 import { Item } from './Item';
 
 export const Actions = () => {
-  const honeycomb = useHoneycombColorModeValue();
+  const { colorMode } = useColorMode();
 
   const [visible, setVisible] = useState<VisibleType | null>(null);
 
@@ -55,12 +55,12 @@ export const Actions = () => {
       >
         <Flex
           alignItems="center"
-          bg={!!visible ? honeycomb.color.warning.normal : 'none'}
+          bg={!!visible ? theme.colors[colorMode].scene.warning.normal : 'none'}
           borderRadius="50%"
           h={theme.sizes['6']}
           justifyContent="center"
           w={theme.sizes['6']}
-          _hover={{ bg: honeycomb.color.warning.normal }}
+          _hover={{ bg: theme.colors[colorMode].scene.warning.normal }}
         >
           <Icon.Ellipsis />
         </Flex>

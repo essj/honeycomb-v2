@@ -1,10 +1,12 @@
-import { extendTheme } from '@chakra-ui/react';
+import { extendTheme, Theme } from '@chakra-ui/react';
 
 import { colors } from './colors';
 import { components } from './components';
 import { shadows } from './shadows';
 import { styles } from './styles';
+import { typography } from './typography';
 
-export * from './honeycomb';
+const extensions = { colors, components, shadows, styles, typography };
+type ThemeType = Theme & typeof extensions;
 
-export const theme = extendTheme({ colors, components, shadows, styles });
+export const theme = extendTheme(extensions) as ThemeType;

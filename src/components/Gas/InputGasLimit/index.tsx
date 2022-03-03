@@ -4,15 +4,16 @@ import {
   InputLeftElement,
   InputProps,
   InputRightElement,
+  useColorMode,
 } from '@chakra-ui/react';
 
-import { GoldLight, theme, useHoneycombColorModeValue } from '../../../modules/theme';
+import { theme } from '../../../modules/theme';
 import { ButtonIncrement } from '../ButtonIncrement';
 
 export type Props = InputProps & {};
 
 export const InputGasLimit = ({ ...otherProps }: Props) => {
-  const honeycomb = useHoneycombColorModeValue();
+  const { colorMode } = useColorMode();
 
   return (
     <InputGroup>
@@ -28,8 +29,8 @@ export const InputGasLimit = ({ ...otherProps }: Props) => {
         textAlign="center"
         type="number"
         _selection={{
-          bg: honeycomb.color.primary.normal,
-          color: GoldLight.honeycomb.color.text.normal,
+          bg: theme.colors[colorMode].scene.primary.normal,
+          color: theme.colors[colorMode].general.dark,
         }}
         {...otherProps}
       />

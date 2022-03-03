@@ -1,12 +1,12 @@
-import { Box, useRadio, UseRadioProps } from '@chakra-ui/react';
+import { Box, useColorMode, useRadio, UseRadioProps } from '@chakra-ui/react';
 
-import { theme, useHoneycombColorModeValue } from '../../modules/theme';
+import { theme } from '../../modules/theme';
 
 export type Props = React.InputHTMLAttributes<HTMLInputElement> & UseRadioProps;
 
 export const Tab = (props: Props) => {
   const { getInputProps, getCheckboxProps } = useRadio(props);
-  const honeycomb = useHoneycombColorModeValue();
+  const { colorMode } = useColorMode();
 
   const checkbox = getCheckboxProps();
   const input = getInputProps();
@@ -16,14 +16,14 @@ export const Tab = (props: Props) => {
       <input {...input} />
       <Box
         {...checkbox}
-        bg={honeycomb.color.bg.tooltip.normal}
+        bg={theme.colors[colorMode].bg.secondary}
         borderRadius={theme.sizes['9']}
         cursor="pointer"
-        fontSize="xs"
+        fontSize={theme.typography.fontSizes['3']}
         _checked={{
-          bg: honeycomb.color.text.normal,
-          color: honeycomb.color.bg.normal,
-          fontWeight: 'bold',
+          bg: theme.colors[colorMode].general.normal,
+          color: theme.colors[colorMode].bg.normal,
+          fontWeight: '700',
         }}
         _focus={{
           boxShadow: 'outline',

@@ -1,36 +1,21 @@
 import { inputAnatomy as parts } from '@chakra-ui/anatomy';
 import { mode, PartsStyleFunction, SystemStyleObject } from '@chakra-ui/theme-tools';
 
-import { GoldDark } from '../honeycomb/GoldDark';
-import { GoldLight } from '../honeycomb/GoldLight';
+import { colors } from '../colors';
 import { sizes } from '../sizes';
+import { typography } from '../typography';
 
 const outline: PartsStyleFunction<typeof parts> = (props: any) => {
   const invalidBase = {
-    bg: mode(
-      GoldLight.honeycomb.color.bg.tooltip.outer,
-      GoldDark.honeycomb.color.bg.tooltip.outer,
-    )(props),
-    borderColor: mode(
-      GoldLight.honeycomb.color.danger.normal,
-      GoldDark.honeycomb.color.danger.normal,
-    )(props),
+    bg: mode(colors.light.bg.input, colors.dark.bg.input)(props),
+    borderColor: mode(colors.light.scene.danger.normal, colors.dark.scene.danger.normal)(props),
     boxShadow: 'none',
-    caretColor: mode(
-      GoldLight.honeycomb.color.danger.normal,
-      GoldDark.honeycomb.color.danger.normal,
-    )(props),
+    caretColor: mode(colors.light.scene.danger.normal, colors.dark.scene.danger.normal)(props),
   };
 
   const base = {
-    bg: mode(
-      GoldLight.honeycomb.color.bg.tooltip.outer,
-      GoldDark.honeycomb.color.bg.tooltip.outer,
-    )(props),
-    borderColor: mode(
-      GoldLight.honeycomb.color.bg.tooltip.accent,
-      GoldDark.honeycomb.color.bg.tooltip.accent,
-    )(props),
+    bg: mode(colors.light.bg.input, colors.dark.bg.input)(props),
+    borderColor: mode(colors.light.bg.input, colors.dark.bg.input)(props),
     boxShadow: 'none',
     _invalid: {
       ...invalidBase,
@@ -41,10 +26,7 @@ const outline: PartsStyleFunction<typeof parts> = (props: any) => {
     field: {
       ...base,
       border: '1px solid',
-      caretColor: mode(
-        GoldLight.honeycomb.color.primary.normal,
-        GoldDark.honeycomb.color.primary.normal,
-      )(props),
+      caretColor: mode(colors.light.scene.primary.normal, colors.dark.scene.primary.normal)(props),
       _hover: {
         ...base,
       },
@@ -63,10 +45,7 @@ const outline: PartsStyleFunction<typeof parts> = (props: any) => {
         ...base,
       },
       _placeholder: {
-        color: mode(
-          GoldLight.honeycomb.color.text.placeholder,
-          GoldDark.honeycomb.color.text.placeholder,
-        )(props),
+        color: mode(colors.light.general.masked, colors.dark.general.masked)(props),
       },
     },
     addon: {
@@ -77,7 +56,7 @@ const outline: PartsStyleFunction<typeof parts> = (props: any) => {
 
 const size: Record<string, SystemStyleObject> = {
   lg: {
-    fontSize: 'xl',
+    fontSize: typography.fontSizes['6'],
     px: sizes['5'],
     py: sizes['4'],
     h: 'auto',
@@ -85,7 +64,7 @@ const size: Record<string, SystemStyleObject> = {
   },
 
   md: {
-    fontSize: 'sm',
+    fontSize: typography.fontSizes['3.5'],
     px: sizes['5'],
     py: sizes['4'],
     h: 'auto',
@@ -93,7 +72,7 @@ const size: Record<string, SystemStyleObject> = {
   },
 
   sm: {
-    fontSize: 'xs',
+    fontSize: typography.fontSizes['3'],
     px: sizes['4'],
     py: sizes['3'],
     h: 'auto',
@@ -101,7 +80,7 @@ const size: Record<string, SystemStyleObject> = {
   },
 
   xs: {
-    fontSize: 'xs',
+    fontSize: typography.fontSizes['3'],
     px: sizes['4'],
     py: sizes['3'],
     h: 'auto',

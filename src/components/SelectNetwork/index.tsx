@@ -1,8 +1,8 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Text, useColorMode } from '@chakra-ui/react';
 import Tippy from '@tippyjs/react/headless';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 
-import { theme, useHoneycombColorModeValue } from '../../modules/theme';
+import { theme } from '../../modules/theme';
 import { Icon } from '../Icon';
 
 import { ReactComponent as Arrow } from './arrow.svg';
@@ -12,11 +12,9 @@ const NETWORKS = ['BNB Beacon Chain', 'BNB Smart Chain', 'Ethereum'];
 const NETWORKS_TEST = ['BNB Beacon Chain Test', 'BNB Smart Chain Test', 'Ropsten Test'];
 
 export const SelectNetwork = () => {
-  const honeycomb = useHoneycombColorModeValue();
+  const { colorMode } = useColorMode();
 
   const [visible, setVisible] = useState(false);
-
-  const bg = useMemo(() => honeycomb.color.bg.normal, [honeycomb.color.bg.normal]);
 
   return (
     <Tippy
@@ -29,13 +27,19 @@ export const SelectNetwork = () => {
       render={(attrs) => (
         <Box>
           <Box data-popper-arrow="" top="-6px">
-            <Arrow color={bg} />
+            <Arrow color={theme.colors[colorMode].bg.normal} />
           </Box>
-          <Box bg={bg} borderRadius={theme.sizes['3']} w="320px" {...attrs}>
+          <Box
+            bg={theme.colors[colorMode].bg.normal}
+            borderRadius={theme.sizes['3']}
+            overflow="hidden"
+            w="320px"
+            {...attrs}
+          >
             <Text
               display="flex"
-              fontSize={theme.sizes['5']}
-              fontWeight="bold"
+              fontSize={theme.typography.fontSizes['5']}
+              fontWeight="700"
               justifyContent="center"
               py={theme.sizes['4']}
             >
@@ -47,12 +51,12 @@ export const SelectNetwork = () => {
               networks={NETWORKS}
               title="Main"
             />
-            <Box bg={honeycomb.color.bg.tooltip.accent} h="1px" mx={theme.sizes['4']} />
+            <Box bg={theme.colors[colorMode].bg.accent} h="1px" mx={theme.sizes['4']} />
             <Section
               accordionProps={{ defaultIndex: -1 }}
               accordionButtonProps={{
                 alignItems: 'center',
-                color: honeycomb.color.text.placeholder,
+                color: theme.colors[colorMode].general.masked,
                 h: '42px',
               }}
               networks={NETWORKS_TEST}
@@ -65,11 +69,11 @@ export const SelectNetwork = () => {
     >
       <Box
         alignItems="center"
-        bg={bg}
+        bg={theme.colors[colorMode].bg.normal}
         borderRadius={theme.sizes['10']}
         cursor="pointer"
         display="flex"
-        fontSize={theme.sizes['3']}
+        fontSize={theme.typography.fontSizes['3']}
         h={theme.sizes['8']}
         justifyContent="center"
         onClick={() => setVisible((value) => !value)}

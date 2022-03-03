@@ -57,14 +57,14 @@ const App = () => {
       </Button>
 
       <ComponentContainer>
-        <Text fontSize="3xl">button</Text>
+        <Text fontSize={theme.typography.fontSizes['8']}>button</Text>
         {BUTTON_VARIANTS.map((variant) => (
           <Button key={variant} variant={variant}>
             {variant}
           </Button>
         ))}
         <Button leftIcon={<Icon />}>with icon</Button>
-        <Text fontSize="md">disabled</Text>
+        <Text fontSize={theme.typography.fontSizes['4']}>disabled</Text>
         {BUTTON_VARIANTS.map((variant) => (
           <Button key={`${variant}-disabled`} variant={variant} disabled>
             {variant}
@@ -73,27 +73,27 @@ const App = () => {
       </ComponentContainer>
 
       <ComponentContainer>
-        <Text fontSize="3xl">checkbox</Text>
+        <Text fontSize={theme.typography.fontSizes['8']}>checkbox</Text>
         <Checkbox defaultChecked>checkbox</Checkbox>
         <Checkbox>checkbox</Checkbox>
       </ComponentContainer>
 
       <ComponentContainer h="425px">
-        <Text fontSize="3xl">copy to clipboard</Text>
+        <Text fontSize={theme.typography.fontSizes['8']}>copy to clipboard</Text>
         <CopyToClipboard
           content={<CopyToClipboard.Content>Copy address</CopyToClipboard.Content>}
           value="0x0"
         >
           <Button>copy to clipboard</Button>
         </CopyToClipboard>
-        <Text fontSize="md">copy to clipboard account address</Text>
-        <Text fontSize="sm">home:</Text>
+        <Text fontSize={theme.typography.fontSizes['4']}>copy to clipboard account address</Text>
+        <Text fontSize={theme.typography.fontSizes['3.5']}>home:</Text>
         <CopyToClipboardAccountAddress
           account="Account 1"
           address="0x00000000000"
           variant="primary"
         />
-        <Text fontSize="sm">receive:</Text>
+        <Text fontSize={theme.typography.fontSizes['3.5']}>receive:</Text>
         <CopyToClipboardAccountAddress
           account="Account 1"
           address="0x00000000000"
@@ -102,21 +102,21 @@ const App = () => {
       </ComponentContainer>
 
       <ComponentContainer>
-        <Text fontSize="3xl">dashboard</Text>
+        <Text fontSize={theme.typography.fontSizes['8']}>dashboard</Text>
         <Dashboard />
       </ComponentContainer>
 
       <ComponentContainer>
-        <Text fontSize="3xl">input</Text>
+        <Text fontSize={theme.typography.fontSizes['8']}>input</Text>
         <Input />
         <Input isDisabled placeholder="disabled" />
         <Input isInvalid placeholder="invalid" />
-        <Text fontSize="sm">gas limit</Text>
+        <Text fontSize={theme.typography.fontSizes['3.5']}>gas limit</Text>
         <InputGasLimit />
       </ComponentContainer>
 
       <ComponentContainer>
-        <Text fontSize="3xl">navigation</Text>
+        <Text fontSize={theme.typography.fontSizes['8']}>navigation</Text>
         <Navigation />
       </ComponentContainer>
 
@@ -127,12 +127,12 @@ const App = () => {
           },
         }}
       >
-        <Text fontSize="3xl">select network</Text>
+        <Text fontSize={theme.typography.fontSizes['8']}>select network</Text>
         <SelectNetwork />
       </ComponentContainer>
 
       <ComponentContainer>
-        <Text fontSize="3xl">radio</Text>
+        <Text fontSize={theme.typography.fontSizes['8']}>radio</Text>
         <RadioGroup defaultValue="1">
           <Stack spacing={theme.sizes['4']} direction="row">
             <Radio value="1">radio</Radio>
@@ -142,13 +142,13 @@ const App = () => {
       </ComponentContainer>
 
       <ComponentContainer>
-        <Text fontSize="3xl">switch</Text>
+        <Text fontSize={theme.typography.fontSizes['8']}>switch</Text>
         <Switch defaultChecked>switch</Switch>
         <Switch>switch</Switch>
       </ComponentContainer>
 
       <ComponentContainer>
-        <Text fontSize="3xl">tab</Text>
+        <Text fontSize={theme.typography.fontSizes['8']}>tab</Text>
         <HStack {...group}>
           {OPTIONS.map((it) => {
             const radio = getRadioProps({ value: it });

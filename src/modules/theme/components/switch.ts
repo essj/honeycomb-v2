@@ -1,8 +1,7 @@
 import { mode } from '@chakra-ui/theme-tools';
 
-import { GoldDark } from '../honeycomb/GoldDark';
-import { GoldLight } from '../honeycomb/GoldLight';
-import { sizes } from '../sizes';
+import { colors } from '../colors';
+import { typography } from '../typography';
 
 const container = {
   display: 'flex',
@@ -11,17 +10,27 @@ const container = {
 
 const track = (props: any) => {
   const checkedBase = {
-    bg: mode(
-      GoldLight.honeycomb.color.primary.normal,
-      GoldDark.honeycomb.color.primary.normal,
-    )(props),
+    bg: mode(colors.light.scene.primary.normal, colors.dark.scene.primary.normal)(props),
   };
 
   return {
-    bg: mode(
-      GoldLight.honeycomb.color.bg.tooltip.outer,
-      GoldDark.honeycomb.color.bg.tooltip.outer,
-    )(props),
+    bg: mode(colors.light.bg.masked, colors.dark.bg.masked)(props),
+    _checked: {
+      ...checkedBase,
+      _hover: {
+        ...checkedBase,
+      },
+    },
+  };
+};
+
+const thumb = (props: any) => {
+  const checkedBase = {
+    bg: '#ffffff',
+  };
+
+  return {
+    bg: mode(colors.light.general.secondary, colors.dark.general.secondary)(props),
     _checked: {
       ...checkedBase,
       _hover: {
@@ -34,6 +43,7 @@ const track = (props: any) => {
 export const Switch = {
   baseStyle: (props: any) => ({
     container,
+    thumb: thumb(props),
     track: track(props),
   }),
   defaultProps: {
@@ -41,7 +51,7 @@ export const Switch = {
   },
   sizes: {
     md: {
-      label: { fontSize: sizes['3.5'] },
+      label: { fontSize: typography.fontSizes['3.5'] },
     },
   },
 };

@@ -1,14 +1,14 @@
-import { Flex, FlexProps } from '@chakra-ui/react';
+import { Flex, FlexProps, useColorMode } from '@chakra-ui/react';
 
-import { theme, useHoneycombColorModeValue } from '../../../modules/theme';
+import { theme } from '../../../modules/theme';
 
 export const ComponentContainer = (props: FlexProps) => {
-  const honeycomb = useHoneycombColorModeValue();
+  const { colorMode } = useColorMode();
 
   return (
     <Flex
       border="1px dashed"
-      borderColor={honeycomb.color.text.normal}
+      borderColor={theme.colors[colorMode].general.normal}
       borderRadius={theme.sizes['4']}
       flexDirection="column"
       padding={theme.sizes['10']}

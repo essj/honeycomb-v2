@@ -7,10 +7,11 @@ import {
   AccordionProps,
   Box,
   Text,
+  useColorMode,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 
-import { theme, useHoneycombColorModeValue } from '../../../modules/theme';
+import { theme } from '../../../modules/theme';
 import { Icon } from '../../Icon';
 
 export type Props = {
@@ -21,7 +22,7 @@ export type Props = {
 };
 
 export const Section = ({ accordionProps, accordionButtonProps, networks, title }: Props) => {
-  const honeycomb = useHoneycombColorModeValue();
+  const { colorMode } = useColorMode();
 
   const [expandedIndex, setExpandedIndex] = useState(accordionProps?.defaultIndex ?? 0);
 
@@ -33,9 +34,12 @@ export const Section = ({ accordionProps, accordionButtonProps, networks, title 
     >
       <AccordionItem border="none">
         <AccordionButton
-          fontSize="xs"
+          fontSize={theme.typography.fontSizes['3']}
           justifyContent="center"
           py="0"
+          _hover={{
+            bg: 'initial',
+          }}
           _focus={{
             boxShadow: 'none',
           }}
@@ -54,7 +58,7 @@ export const Section = ({ accordionProps, accordionButtonProps, networks, title 
             key={it}
             p={theme.sizes['4']}
             _hover={{
-              bg: honeycomb.color.bg.input.normal,
+              bg: theme.colors[colorMode].bg.input,
               cursor: 'pointer',
             }}
           >

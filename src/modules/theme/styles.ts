@@ -1,36 +1,33 @@
 import { mode } from '@chakra-ui/theme-tools';
 
-import { GoldDark } from './honeycomb/GoldDark';
-import { GoldLight } from './honeycomb/GoldLight';
-
 import '../../../node_modules/tippy.js/dist/tippy.css';
 
+import { colors } from './colors';
+import { typography } from './typography';
+
 const tippyDark = {
-  color: GoldDark.honeycomb.color.text.normal,
-  backgroundColor: GoldDark.honeycomb.color.bg.normal,
+  color: colors.dark.general.normal,
+  backgroundColor: colors.dark.bg.normal,
   '.tippy-arrow ': {
-    color: GoldDark.honeycomb.color.bg.normal,
+    color: colors.dark.bg.normal,
   },
 };
 const tippyLight = {
-  color: GoldLight.honeycomb.color.text.normal,
-  backgroundColor: GoldLight.honeycomb.color.bg.normal,
+  color: colors.light.general.normal,
+  backgroundColor: colors.light.bg.normal,
   '.tippy-arrow ': {
-    color: GoldLight.honeycomb.color.bg.normal,
+    color: colors.light.bg.normal,
   },
 };
 
 export const styles = {
   global: (props: any) => ({
     body: {
-      color: mode(
-        GoldLight.honeycomb.color.text.normal,
-        GoldDark.honeycomb.color.text.normal,
-      )(props),
-      bg: mode(GoldLight.honeycomb.color.bg.masked, GoldDark.honeycomb.color.bg.masked)(props),
+      color: mode(colors.light.general.normal, colors.dark.general.normal)(props),
+      bg: mode(colors.light.bg.normal, colors.dark.bg.normal)(props),
     },
     '.tippy-box': {
-      fontSize: 'xs',
+      fontSize: typography.fontSizes['3'],
       '.tippy-content': {
         p: 0,
       },
