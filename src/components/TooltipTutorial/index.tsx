@@ -9,7 +9,7 @@ export enum VisibleType {
   Tooltip = 'TOOLTIP',
 }
 
-export type Props = TippyProps & {
+type Props = TippyProps & {
   children: React.ReactElement;
   contentDropdown?: React.ReactNode;
   contentTooltip?: React.ReactNode;
@@ -26,7 +26,11 @@ export const TooltipTutorial = ({
 
   const [visible, setVisible] = useState<VisibleType | null>(null);
   const [timeoutHandle, setTimeoutHandle] = useState(-1);
-  const [tippyContent, setTippyContent] = useState<React.ReactNode>(null);
+  const [tippyState, setTippyState] = useState<{
+    content: TippyProps['content'];
+    placement: TippyProps['placement'];
+    theme: TippyProps['theme'];
+  } | null>(null);
 
   useEffect(() => {
     if (!onVisibleChange) return;
@@ -37,32 +41,33 @@ export const TooltipTutorial = ({
   useEffect(() => {
     if (!visible) return;
     if (visible === VisibleType.Dropdown) {
-      setTippyContent(contentDropdown);
+      setTippyState({
+        content: contentDropdown,
+        placement: 'bottom',
+        theme: colorMode,
+      });
       return;
     }
-    setTippyContent(contentTooltip);
-  }, [contentDropdown, contentTooltip, visible]);
+    setTippyState({
+      content: contentTooltip,
+      placement: 'top',
+      theme: colorMode === 'dark' ? 'light' : 'dark',
+    });
+  }, [colorMode, contentDropdown, contentTooltip, visible]);
 
-  const tippyPlacement = useMemo((): TippyProps['placement'] => {
-    if (!visible) return undefined;
-    if (visible === VisibleType.Dropdown) return 'bottom';
-    return 'top';
-  }, [visible]);
-
-  const tippyTheme = useMemo((): TippyProps['theme'] => {
-    if (!visible) return undefined;
-    if (visible === VisibleType.Dropdown) return colorMode;
-    return colorMode === 'dark' ? 'light' : 'dark';
-  }, [colorMode, visible]);
+  const close = useCallback(() => {
+    setVisible(null);
+    setTippyState(null);
+  }, []);
 
   const toggleDropdown = useCallback(() => {
     if (!contentDropdown) return undefined;
     if (visible === VisibleType.Dropdown) {
-      setVisible(null);
+      close();
       return;
     }
     setVisible(VisibleType.Dropdown);
-  }, [contentDropdown, visible]);
+  }, [close, contentDropdown, visible]);
 
   const mouseEnter = useCallback(() => {
     setTimeoutHandle(
@@ -78,9 +83,9 @@ export const TooltipTutorial = ({
   const mouseLeave = useCallback(() => {
     if (timeoutHandle > 0) clearTimeout(timeoutHandle);
     if (visible === VisibleType.Tooltip) {
-      setVisible(null);
+      close();
     }
-  }, [timeoutHandle, visible]);
+  }, [close, timeoutHandle, visible]);
 
   // TODO: Call existing events (like onClick), if any, before we overwrite.
   const children = useMemo(() => {
@@ -98,12 +103,10 @@ export const TooltipTutorial = ({
     <Tippy
       animation={false}
       arrow
-      content={tippyContent}
       interactive
       onClickOutside={toggleDropdown}
-      placement={tippyPlacement}
-      theme={tippyTheme}
       visible={!!visible}
+      {...tippyState}
       {...otherProps}
     >
       {children}
