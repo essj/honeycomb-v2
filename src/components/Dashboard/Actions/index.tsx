@@ -42,7 +42,14 @@ export const Actions = () => {
       <TooltipTutorial
         contentTooltip={<TooltipTutorial.Content>Account options</TooltipTutorial.Content>}
         contentDropdown={
-          <Flex flexDirection="column" py={theme.sizes['2']}>
+          <Flex
+            bg={theme.colors[colorMode].bg.normal}
+            borderRadius={theme.sizes['3']}
+            color={theme.colors[colorMode].general.normal}
+            flexDirection="column"
+            fontSize={theme.typography.fontSizes['3']}
+            py={theme.sizes['2']}
+          >
             <Item icon={<Icon.ExternalLink />} title="View account in explorer" />
             <Item icon={<Icon.Connect />} title="Connected sites" />
           </Flex>
