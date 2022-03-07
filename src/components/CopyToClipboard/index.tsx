@@ -37,7 +37,14 @@ export const CopyToClipboard = ({
 
   const tippyContent = useMemo(() => {
     if (hasCopied)
-      return <Content color={theme.colors[colorMode].scene.success.normal}>Copied!</Content>;
+      return (
+        <Content
+          bg={theme.colors[colorMode].bg.normal}
+          color={theme.colors[colorMode].scene.success.normal}
+        >
+          Copied!
+        </Content>
+      );
     return otherProps.content;
   }, [colorMode, hasCopied, otherProps.content]);
 

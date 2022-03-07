@@ -22,7 +22,7 @@ export const CopyToClipboardAccountAddress = ({ account, address, variant }: Pro
     if (variant === 'primary') {
       return {
         _hover: {
-          bg: theme.colors[colorMode].scene.warning.normal,
+          bg: theme.colors[colorMode].scene.primary.normal,
           color: theme.colors[colorMode].general.dark,
         },
       };
