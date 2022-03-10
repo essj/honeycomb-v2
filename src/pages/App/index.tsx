@@ -13,11 +13,13 @@ import {
   useColorMode,
   useRadioGroup,
 } from '@chakra-ui/react';
+import { useState } from 'react';
 
 import { CopyToClipboardAccountAddress } from '../../components/CopyToClipboardAccountAddress';
 import { CopyToClipboard } from '../../components/CopyToClipboard';
 import { Dashboard } from '../../components/Dashboard';
 import { InputGasLimit } from '../../components/Gas';
+import { InputPassword } from '../../components/InputPassword';
 import { Navigation } from '../../components/Navigation';
 import { SelectNetwork } from '../../components/SelectNetwork';
 import { Tab } from '../../components/Tab';
@@ -41,6 +43,8 @@ const App = () => {
     onChange: console.log,
   });
   const group = getRootProps();
+
+  const [password, setPassword] = useState('');
 
   return (
     <Flex
@@ -113,6 +117,8 @@ const App = () => {
         <Input isInvalid placeholder="invalid" />
         <Text fontSize={theme.typography.fontSizes['3.5']}>gas limit</Text>
         <InputGasLimit />
+        <Text fontSize={theme.typography.fontSizes['3.5']}>password</Text>
+        <InputPassword value={password} onChange={(evt) => setPassword(evt.target.value)} />
       </ComponentContainer>
 
       <ComponentContainer>

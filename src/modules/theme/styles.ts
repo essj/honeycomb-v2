@@ -89,6 +89,16 @@ export const styles = {
     body: {
       color: mode(colors.light.general.normal, colors.dark.general.normal)(props),
       bg: mode(colors.light.bg.normal, colors.dark.bg.normal)(props),
+      fontSize: '1rem',
+      margin: 0,
+    },
+    '#root': {
+      w: '100vw',
+      minH: '100vh',
+      display: 'flex',
+      flex: '1',
+      flexDirection: 'column',
+      alignItems: 'stretch',
     },
     ...tippyBase,
     ...tippyCustom,
