@@ -19,7 +19,7 @@ import { CopyToClipboardAccountAddress } from '../../components/CopyToClipboardA
 import { CopyToClipboard } from '../../components/CopyToClipboard';
 import { Dashboard } from '../../components/Dashboard';
 import { InputGasLimit } from '../../components/Gas';
-import { InputPassword } from '../../components/InputPassword';
+import { InputPassword, useInputPasswordValidation } from '../../components/InputPassword';
 import { Navigation } from '../../components/Navigation';
 import { SelectNetwork } from '../../components/SelectNetwork';
 import { Tab } from '../../components/Tab';
@@ -45,6 +45,7 @@ const App = () => {
   const group = getRootProps();
 
   const [password, setPassword] = useState('');
+  const inputPasswordValidation = useInputPasswordValidation({ value: password });
 
   return (
     <Flex
@@ -118,7 +119,11 @@ const App = () => {
         <Text fontSize={theme.typography.fontSizes['3.5']}>gas limit</Text>
         <InputGasLimit />
         <Text fontSize={theme.typography.fontSizes['3.5']}>password</Text>
-        <InputPassword value={password} onChange={(evt) => setPassword(evt.target.value)} />
+        <InputPassword
+          value={password}
+          onChange={(evt) => setPassword(evt.target.value)}
+          validation={inputPasswordValidation}
+        />
       </ComponentContainer>
 
       <ComponentContainer>

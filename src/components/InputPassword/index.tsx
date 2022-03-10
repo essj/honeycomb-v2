@@ -8,13 +8,21 @@ import { TooltipTutorial } from '../TooltipTutorial';
 
 import { useInputPasswordValidation } from './useInputPasswordValidation';
 
-export const InputPassword = ({ onBlur, onChange, onFocus, ...otherProps }: InputProps) => {
+export { useInputPasswordValidation } from './useInputPasswordValidation';
+
+export const InputPassword = ({
+  validation,
+  onBlur,
+  onChange,
+  onFocus,
+  ...otherProps
+}: InputProps & {
+  validation: ReturnType<typeof useInputPasswordValidation>;
+}) => {
   // const { formatMessage } = useIntl();
 
   const [isFocused, setFocused] = useState(false);
   const [isPristine, setPristine] = useState(true);
-
-  const inputPasswordValidation = useInputPasswordValidation({ value: otherProps.value });
 
   const focus = useCallback<NonNullable<InputProps['onFocus']>>(
     (evt) => {
@@ -63,7 +71,7 @@ export const InputPassword = ({ onBlur, onChange, onFocus, ...otherProps }: Inpu
               },
             }}
           >
-            {inputPasswordValidation.errors.map((it, index) => (
+            {validation.errors.map((it, index) => (
               <React.Fragment key={index}>{it}</React.Fragment>
             ))}
           </TooltipTutorial.Content>
@@ -76,7 +84,7 @@ export const InputPassword = ({ onBlur, onChange, onFocus, ...otherProps }: Inpu
         visible={isFocused}
       >
         <Input
-          isInvalid={!isPristine && !inputPasswordValidation.isValid}
+          isInvalid={!isPristine && !validation.isValid}
           // placeholder={formatMessage({ id: 'generic.password' })}
           onFocus={focus}
           onBlur={blur}
